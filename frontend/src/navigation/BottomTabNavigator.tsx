@@ -5,10 +5,10 @@ import { HomeScreen } from '../screens/Home/HomeScreen';
 import { RequestsScreen } from '../screens/Requests/RequestsScreen';
 import { NotificationsScreen } from '../screens/Notifications/NotificationsScreen';
 import { ProfileScreen } from '../screens/Profile/ProfileScreen';
-import { BottomTabParamList } from '../types/navigation';
+import { MainTabParamList } from '../types/navigation';
 import { colors, typography } from '../theme';
 
-const Tab = createBottomTabNavigator<BottomTabParamList>();
+const Tab = createBottomTabNavigator<MainTabParamList>();
 
 function TabIcon({ label }: { label: string }) {
   return <Text style={{ fontSize: 20 }}>{label}</Text>;

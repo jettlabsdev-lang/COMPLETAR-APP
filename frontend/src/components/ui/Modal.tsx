@@ -7,7 +7,7 @@ import {
   StyleSheet,
   ViewStyle,
 } from 'react-native';
-import { colors, spacing, typography } from '../../theme';
+import { colors, spacing, typography, radii } from '../../theme';
 
 interface ModalProps {
   visible: boolean;
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   },
   content: {
     backgroundColor: colors.surface,
-    borderRadius: 16,
+    borderRadius: radii.xl,
     padding: spacing.xl,
     width: '100%',
   },
