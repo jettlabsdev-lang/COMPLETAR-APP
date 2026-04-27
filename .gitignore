@@ -1,0 +1,144 @@
+# Node.js / npm / yarn / pnpm
+node_modules/
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+.pnpm-debug.log*
+
+
+# Logs y Datos de Ejecución
+logs/
+*.log
+pids/
+*.pid
+*.seed
+node_repl_history
+
+
+# Testing y Cobertura
+coverage/
+.nyc_output/
+lib-cov/
+playwright-report/
+test-results/
+cypress/videos/
+cypress/screenshots/
+
+
+# Build Outputs
+build/
+dist/
+dist-ssr/
+web-build/
+*.tsbuildinfo
+*.local
+
+
+# Frontend frameworks (Next.js / Vite / Vercel)
+.next/
+out/
+.vite/
+.vercel/
+.env.*.local
+
+
+# Expo / React Native
+.expo/
+expo-env.d.ts
+.metro-health-check*
+.kotlin/
+*.orig.*
+/ios
+/android
+
+
+# Monorepo / Build tooling
+.turbo/
+.nx/
+
+
+# Supabase CLI
+supabase/.temp/
+supabase/.branches/
+
+
+# Dependencias
+bower_components/
+jspm_packages/
+.npm/
+
+
+# Cache
+.rpt2_cache/
+.rts2_cache_*/
+.eslintcache
+.stylelintcache
+*.tgz
+
+
+# Variables de Entorno
+.env
+.env.local
+.env.dev
+.env.development
+.env.staging
+.env.prod
+.env.production
+!.env.example
+
+
+# Secretos / certificados
+*.pem
+*.key
+*.crt
+*.p12
+*.p8
+*.jks
+*.mobileprovision
+
+
+# Bases de datos locales
+*.sqlite
+*.sqlite3
+*.db
+
+
+# Docker
+docker-compose.override.yml
+db-data/
+
+
+# IDEs y Editores
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+.history/
+.project
+.classpath
+.c9/
+.settings/
+*.launch
+*.sublime-workspace
+*.swp
+*.swo
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.tmp
+*.bak
+*~
+.claude/
+
+
+# Sistema Operativo
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+
+# Específicos del Proyecto
+docs

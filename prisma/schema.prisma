@@ -1,0 +1,98 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../backend/node_modules/.prisma/client"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id          String   @id @default(uuid())
+  email       String   @unique
+  role        String
+  created_at  DateTime @default(now())
+  is_active   Boolean  @default(true)
+
+  clientProfile     ClientProfile?
+  technicianProfile TechnicianProfile?
+
+  notifications Notification[]
+}
+
+model ClientProfile {
+  user_id String @id
+  name    String
+  phone   String
+  address String?
+  avatar_url String?
+
+  user User @relation(fields: [user_id], references: [id])
+
+  service_requests ServiceRequest[]
+}
+
+model TechnicianProfile {
+  user_id String @id
+  name    String
+  phone   String
+  category String
+  rating_avg Float?
+  fcm_token String?
+  is_available Boolean @default(true)
+
+  user User @relation(fields: [user_id], references: [id])
+
+  service_requests ServiceRequest[]
+}
+
+model ServiceRequest {
+  id            String   @id @default(uuid())
+  client_id     String
+  technician_id String?
+  category_id   String
+  description   String
+  status        String
+  location      String
+  images        String[]
+
+  client     ClientProfile     @relation(fields: [client_id], references: [user_id])
+  technician TechnicianProfile? @relation(fields: [technician_id], references: [user_id])
+  category   Category          @relation(fields: [category_id], references: [id])
+
+  rating Rating?
+}
+
+model Rating {
+  id             String   @id @default(uuid())
+  request_id     String   @unique
+  client_id      String
+  technician_id  String
+  score          Int
+  comment        String?
+  created_at     DateTime @default(now())
+
+  serviceRequest ServiceRequest @relation(fields: [request_id], references: [id])
+}
+
+model Category {
+  id        String  @id @default(uuid())
+  name      String
+  icon_url  String?
+  is_active Boolean @default(true)
+
+  service_requests ServiceRequest[]
+}
+
+model Notification {
+  id         String   @id @default(uuid())
+  user_id    String
+  title      String
+  body       String
+  is_read    Boolean  @default(false)
+  created_at DateTime @default(now())
+
+  user User @relation(fields: [user_id], references: [id])
+}
